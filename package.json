@@ -1,0 +1,23 @@
+{
+"name": "piListener",
+"version": "0.0.1",
+"description": "Used to track Raspberry Pis.",
+"repository": "https://github.com/ISNIT0/piListener.git",
+"author": "Joe Reeve",
+"dependencies": {
+  "async":">=0.9.0",
+  "body-parser":">=1.9.2",
+  "express":">=4.10.1",
+  "getmac":">=1.0.6",
+  "mongojs":">=0.17.0",
+  "request":">=2.47.0",
+},
+"main": "index",
+"engines": {
+"node": ">= 0.4.1"
+},
+"scripts": {
+"prepublish": "npm prune",
+"test": "make lint && make test"
+}
+}
