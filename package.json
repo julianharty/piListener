@@ -11,13 +11,5 @@
   "getmac":">=1.0.6",
   "mongojs":">=0.17.0",
   "request":">=2.47.0",
-},
-"main": "index",
-"engines": {
-"node": ">= 0.4.1"
-},
-"scripts": {
-"prepublish": "npm prune",
-"test": "make lint && make test"
 }
 }
