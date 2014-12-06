@@ -1,5 +1,6 @@
 import subprocess
 import json
+import requests
 
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
@@ -7,7 +8,7 @@ data = {
 	'cid': open('/sys/block/mmcblock0/device/cid').read().rstrip()
 }
 
-req = urllib2.Request('http://atslash.com:1337/')
-req.add_header('Content-Type', 'application/json')
+url = 'http://atslash.com:4000/'
+headers = {'content-type': 'application/json'}
 
-response = urllib2.urlopen(req, json.dumps(data))
+r = requests.post(url, data=json.dumps(data), headers=headers)
