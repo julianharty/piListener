@@ -4,7 +4,7 @@ express = require 'express'
 app = express()
 app.use require('body-parser').json()
 request = require 'request'
-db = require('mongojs')('test').collection 'rPiDevices'
+#db = require('mongojs')('test').collection 'rPiDevices'
 
 
 app.get '/', (req,res)->
