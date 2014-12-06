@@ -5,7 +5,7 @@ import requests
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
 	'uptime': subprocess.check_output('uptime'),
-	'cid': open('/sys/block/mmcblock0/device/cid').read().rstrip()
+	'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip()
 }
 
 url = 'http://atslash.com:4000/'
