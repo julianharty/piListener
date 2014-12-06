@@ -4,7 +4,7 @@ express = require 'express'
 app = express()
 app.use require('body-parser').json()
 request = require 'request'
-db = require('mongojs')('test').collection 'rPiDevices'
+#db = require('mongojs')('test').collection 'rPiDevices'
 
 
 app.get '/', (req,res)->
@@ -16,7 +16,7 @@ app.get '/', (req,res)->
         if @foo.length>=macs.length then res.send @foo
 
 
-app.post '/', (req,res)->
+app.post '/old', (req,res)->
   db.find mac:req.body.mac, (e,data)->
     console.log 'Someone is updating!',req.body
     tmp = req.body
@@ -24,5 +24,8 @@ app.post '/', (req,res)->
     db.insert tmp
     res.send 'Done!'
 
+app.post '/', (req, res)->
+  console.log req.body
+  res.send 'Whoo!'
 
 app.listen 4000
