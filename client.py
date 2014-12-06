@@ -1,4 +1,4 @@
-import subprocess, json, urllib2, fcntl, socket, struct
+import subprocess, json, fcntl, socket, struct, sys
 
 def getHwAddr(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -13,7 +13,7 @@ data = {
         'MAC': getHwAddr('wlan0')
         }
 
-req = urllib2.Request('http://atslash.com:4000/')
+req = urllib2.Request('http://'+(sys.argv[1] if len(sys.argv)>=2 else 'atslash.com:4000/'))
 req.add_header('Content-Type', 'application/json')
 
 response = urllib2.urlopen(req, json.dumps(data))
