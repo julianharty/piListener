@@ -1,5 +1,6 @@
 import subprocess
 import json
+import urllib2
 
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
