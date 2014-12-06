@@ -8,8 +8,8 @@ def getHwAddr(ifname):
 
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
-        'uptime': subprocess.check_output('uptime'),
-        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip()
+        'uptime': subprocess.check_output('uptime').rstrip(),
+        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
         'MAC': getHwAddr('wlan0')
         }
 
