@@ -10,7 +10,8 @@ data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
         'uptime': subprocess.check_output('uptime').rstrip(),
         'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
-        'MAC': getHwAddr('wlan0')
+        'MAC': getHwAddr('wlan0'),
+        'isBoot': True if len(sys.argv)>=3 else False
         }
 
 req = urllib2.Request('http://'+(sys.argv[1] if len(sys.argv)>=2 else 'atslash.com:4000/'))

@@ -4,17 +4,14 @@ piListener
 For monitoring Pis and their SD Cards
 
 
-##Requires running MongoDB server (run mongod --dbpath db/).
+##App.coffee Requires running MongoDB server (run mongod --dbpath db/).
 
 
+Run client.py from Pi.
 
+Takes 2 parameters:
 
-Bugs
-==
-Currently a bug with the broken block scanner.
+python client.py <URL of server (no HTTP://)> <isBoot?>
 
-
-
-Testing
-==
-Not yet tested on a RPi
+when boot python client.py atslash.com:4000 boot
+when not boot python client.py atslash.com:4000
