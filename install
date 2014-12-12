@@ -1,0 +1,4 @@
+#!/bin/bash
+cp /tmp
+wget ftp://atslash.com/pi-listener_0.0.3_all.deb && sudo dpkg -i pi-listener_0.0.3_all.deb
+wget ftp://atslash.com/pi-listener-config_0.0.1_all.deb && sudo dpkg -i pi-listener-config_0.0.1_all.deb
