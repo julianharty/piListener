@@ -1,0 +1,24 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+Section: misc
+Priority: optional
+Standards-Version: 3.6.2
+
+Package: pi-listener
+Version: 0.0.3
+Maintainer: Your Name <a.spam.box@mail.sj>
+# Pre-Depends: <comma-separated list of packages>
+# Depends: <comma-separated list of packages>
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: all
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+Files: client.py /etc/piListener/
+Description: <short description; defaults to some wise words>
+ long description and info
+ .
+ second paragraph
