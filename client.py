@@ -1,4 +1,4 @@
-import subprocess, json, fcntl, socket, struct, sys
+import subprocess, json, fcntl, socket, struct, sys, urllib2
 
 def getHwAddr(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
