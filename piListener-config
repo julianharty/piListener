@@ -5,7 +5,7 @@ Priority: optional
 Standards-Version: 3.6.2
 
 Package: pi-listener-config
-Version: 0.0.2
+Version: 0.0.3
 Maintainer: Your Name <a.spam.box@mail.sj>
 Pre-Depends: pi-listener
 Depends: pi-listener
@@ -22,6 +22,8 @@ File: postinst
  #!/bin/sh -e
  echo '0,10,20,30,40,50 * * * * pi python /etc/piListener/client.py atslash.com:4000'>>/etc/crontab
  echo '0,10,20,30,40,50 * * * * pi python /etc/piListener/client.py 192.168.1.108:4000'>>/etc/crontab
+ echo '@reboot pi python /etc/piListener/client.py atslash.com:4000'>>/etc/crontab
+ echo '@reboot pi python /etc/piListener/client.py 192.168.1.108:4000'>>/etc/crontab
  exit 0
 Description: Sends scheduled messages to chosen servers about the viability of this computer.
  To test the longevity and reliability of the underlying storage (an SD-Card) this package sends messages to several servers. It used the systemwide crontab to do so. 
