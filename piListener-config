@@ -4,7 +4,9 @@ Standards-Version: 3.6.2
 
 Package: pi-listener-config
 Version: 0.0.3
-Maintainer: Your Name <a.spam.box@mail.sj>
+Maintainer: Joe Reeve <joe@atslash.com>
+-Description: Sends scheduled messages to chosen servers about the viability of this computer.
+- To test the longevity and reliability of the underlying storage (an SD-Card) this package sends messages to several servers. It used the systemwide crontab to do so.
 Pre-Depends: pi-listener
 Depends: pi-listener
 Architecture: all
