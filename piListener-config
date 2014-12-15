@@ -1,5 +1,3 @@
-### Commented entries have reasonable defaults.
-### Uncomment to edit them.
 Section: misc
 Priority: optional
 Standards-Version: 3.6.2
@@ -9,14 +7,7 @@ Version: 0.0.3
 Maintainer: Your Name <a.spam.box@mail.sj>
 Pre-Depends: pi-listener
 Depends: pi-listener
-# Recommends: <comma-separated list of packages>
-# Suggests: <comma-separated list of packages>
-# Provides: <comma-separated list of packages>
-# Replaces: <comma-separated list of packages>
 Architecture: all
-# Copyright: <copyright file; defaults to GPL2>
-# Changelog: <changelog file; defaults to a generic changelog>
-#Readme: /home/pi/README
 Extra-Files: /home/pi/configs/piListener-config/piListener-config.tar.gz
 File: postinst
  #!/bin/sh -e
@@ -25,7 +16,3 @@ File: postinst
  echo '@reboot pi python /etc/piListener/client.py atslash.com:4000'>>/etc/crontab
  echo '@reboot pi python /etc/piListener/client.py 192.168.1.108:4000'>>/etc/crontab
  exit 0
-Description: Sends scheduled messages to chosen servers about the viability of this computer.
- To test the longevity and reliability of the underlying storage (an SD-Card) this package sends messages to several servers. It used the systemwide crontab to do so. 
- .
- Expectations: The job assumes the user 'pi' exists. 
