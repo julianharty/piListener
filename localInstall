@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo 'Ensure that you have pi-listener*_latest.deb in the same directory. Ether run build or download from Github project.'
+
+sudo dpkg -i pi-listener-config_latest.deb
+sudo dpkg -i pi-listener_latest.deb
+
