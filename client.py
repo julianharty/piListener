@@ -11,8 +11,8 @@ def getHwAddr(ifname):
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
         'uptime': subprocess.check_output('uptime').rstrip(),
-#        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
-        'MAC': map(getHwAddr,['eth0','wlan0']),
+        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
+        'MAC': {'eth0' : getHwAddr('eth0'),'wlan0': getHwAddr('wlan0')},
         'isBoot': True if len(sys.argv)>=3 else False
         }
 
