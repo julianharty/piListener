@@ -6,6 +6,6 @@ echo 'Ensure that you have pi-listener*_latest.deb in the same directory. Ether 
 echo
 echo
 
-sudo dpkg -i pi-listener-config_latest.deb
 sudo dpkg -i pi-listener_latest.deb
+sudo dpkg -i pi-listener-config_latest.deb
 

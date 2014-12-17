@@ -12,8 +12,8 @@ Depends: pi-listener
 Architecture: all
 File: postinst
  #!/bin/sh -e
- echo '0,10,20,30,40,50 * * * * pi python /etc/piListener/client.py atslash.com:4000'>>/etc/crontab
- echo '0,10,20,30,40,50 * * * * pi python /etc/piListener/client.py 192.168.1.108:4000'>>/etc/crontab
- echo '@reboot pi python /etc/piListener/client.py atslash.com:4000 reboot'>>/etc/crontab
- echo '@reboot pi python /etc/piListener/client.py 192.168.1.108:4000 reboot'>>/etc/crontab
+ (crontab -l;echo '0,10,20,30,40,50 * * * * root python /etc/piListener/client.py atslash.com:4000') | crontab -
+ (crontab -l;echo '0,10,20,30,40,50 * * * * root python /etc/piListener/client.py 192.168.1.108:4000') | crontab -
+ (crontab -l;echo '@reboot root python /etc/piListener/client.py atslash.com:4000 reboot') | crontab -
+ (crontab -l;echo '@reboot root python /etc/piListener/client.py 192.168.1.108:4000 reboot') | crontab -
  exit 0
