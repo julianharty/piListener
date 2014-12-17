@@ -1,20 +1,18 @@
 import subprocess, json, fcntl, socket, struct, sys, urllib2
 
-def getHwAddr():
-    ifname=['eth0','wlan0']
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try: 
-	info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', ifname[0][:15]))
-    except: 
-	info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', ifname[1][:15]))
-    return ':'.join(['%02x' % ord(char) for char in info[18:24]])
-
+def getHwAddr(ifname):
+    try:
+	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+	info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', ifname[:15]))
+	return ':'.join(['%02x' % ord(char) for char in info[18:24]])
+    except:
+        return ''
 
 data = {
         'boots': len(subprocess.check_output(['last','reboot']).split(b'\n')) -3,
         'uptime': subprocess.check_output('uptime').rstrip(),
-        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
-        'MAC': getHwAddr(),
+#        'cid': open('/sys/block/mmcblk0/device/cid').read().rstrip(),
+        'MAC': map(getHwAddr,['eth0','wlan0']),
         'isBoot': True if len(sys.argv)>=3 else False
         }
 
