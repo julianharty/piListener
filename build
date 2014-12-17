@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo apt-get install equivs
+rm pi-listener*latest*
+read -p 'Ensure version number in piListener and piListener-config are the same. [ENT]'
+equivs-build piListener
+equivs-build piListener-config
+
+VERSION=$(grep -oP '(?<=_).*?(?=_)' <<< $(ls -v pi-listener* | tail -n 1))
+
+cp pi-listener_${VERSION}_all.deb pi-listener_latest.deb
+cp pi-listener-config_${VERSION}_all.deb pi-listener-config_latest.deb
+
